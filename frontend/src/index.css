@@ -1,0 +1,938 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+:root {
+  --brand: #0f766e;
+  --brand-dark: #0b544e;
+  --brand-light: #e6fffb;
+
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --bg: #f8fafc;
+  --card: #ffffff;
+
+  --success: #15803d;
+  --success-bg: #dcfce7;
+
+  --warning: #b45309;
+  --warning-bg: #fef3c7;
+
+  --danger: #b91c1c;
+  --danger-bg: #fee2e2;
+
+  --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.loading-card,
+.empty-card {
+  padding: 32px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.primary-button {
+  border: 0;
+  border-radius: 8px;
+  background: var(--brand);
+  color: white;
+  padding: 11px 18px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.primary-button:hover {
+  background: var(--brand-dark);
+}
+
+.primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.outline-button {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--text);
+  padding: 11px 18px;
+  font-weight: 700;
+}
+
+.outline-button:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.navbar-button {
+  border: 0;
+  border-radius: 8px;
+  background: var(--brand);
+  color: white;
+  padding: 10px 16px;
+  font-weight: 700;
+}
+
+.navbar-button:hover {
+  background: var(--brand-dark);
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.navbar-brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: var(--brand);
+  color: white;
+}
+
+.navbar-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-brand-title {
+  font-size: 15px;
+}
+
+.navbar-brand-subtitle {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.navbar-link:hover {
+  color: var(--brand);
+}
+
+.navbar-link.active {
+  color: var(--brand);
+}
+
+/* =========================================================
+   DASHBOARD / HOME
+   ========================================================= */
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding: 32px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.hero h1 {
+  margin: 0 0 10px;
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 650px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 14px;
+}
+
+.hero-stat {
+  min-width: 130px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.hero-stat strong {
+  display: block;
+  font-size: 24px;
+}
+
+.hero-stat span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* =========================================================
+   MACHINE GRID
+   ========================================================= */
+
+.machine-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.machine-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.machine-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.machine-card h3 {
+  margin: 0 0 5px;
+  font-size: 18px;
+}
+
+.machine-code {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.machine-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.machine-detail {
+  padding: 10px;
+  background: var(--bg);
+  border-radius: 8px;
+}
+
+.machine-detail span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.machine-detail strong {
+  font-size: 13px;
+}
+
+/* =========================================================
+   STATUS BADGE
+   ========================================================= */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.status-available {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.status-booked {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.status-maintenance {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+/* =========================================================
+   ERROR / SUCCESS
+   ========================================================= */
+
+.error-message {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid #fecaca;
+  font-size: 14px;
+}
+
+.success-message {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--success-bg);
+  color: var(--success);
+  border: 1px solid #bbf7d0;
+  font-size: 14px;
+}
+
+/* =========================================================
+   BOOKING HEADER
+   ========================================================= */
+
+.booking-header {
+  margin-bottom: 28px;
+}
+
+.booking-header h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+}
+
+.booking-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* =========================================================
+   BOOKING LAYOUT
+   ========================================================= */
+
+.booking-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 24px;
+  align-items: start;
+}
+
+.booking-main {
+  min-width: 0;
+}
+
+.form-card {
+  margin-bottom: 20px;
+  padding: 24px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.form-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--brand-light);
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.form-card-header h2 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.form-card-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* =========================================================
+   MACHINE SELECT
+   ========================================================= */
+
+.machine-select-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.select-machine {
+  position: relative;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.select-machine:hover {
+  border-color: var(--brand);
+}
+
+.select-machine.selected {
+  border-color: var(--brand);
+  background: var(--brand-light);
+  box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.08);
+}
+
+.select-machine h3 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.select-machine p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.machine-check {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: var(--brand);
+}
+
+/* =========================================================
+   DATE FIELDS
+   ========================================================= */
+
+.date-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.input-with-icon svg {
+  position: absolute;
+  left: 12px;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.input-with-icon input,
+.input-with-icon select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px 10px 40px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  background: white;
+  color: var(--text);
+}
+
+.input-with-icon input:focus,
+.input-with-icon select:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.08);
+}
+
+.duration-info {
+  margin-top: 14px;
+  padding: 12px;
+  background: var(--bg);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* =========================================================
+   CUSTOMER DETAILS
+   ========================================================= */
+
+.customer-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.customer-field {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.customer-field:last-child {
+  grid-column: 1 / -1;
+}
+
+.customer-field > span {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.customer-field .input-with-icon {
+  margin-top: 0;
+}
+
+.customer-field input::placeholder {
+  color: #9ca3af;
+}
+
+/* =========================================================
+   BILLING PLAN
+   ========================================================= */
+
+.billing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.billing-option {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.billing-option:hover {
+  border-color: var(--brand);
+}
+
+.billing-option.selected {
+  border-color: var(--brand);
+  background: var(--brand-light);
+}
+
+.billing-option h3 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.billing-option p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.billing-price {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.billing-unit {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.billing-minimum {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* =========================================================
+   BOOKING SUMMARY
+   ========================================================= */
+
+.booking-summary {
+  position: sticky;
+  top: 20px;
+}
+
+.summary-card {
+  padding: 22px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.summary-card h2 {
+  margin: 0 0 18px;
+  font-size: 18px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.summary-row span:first-child {
+  color: var(--muted);
+}
+
+.summary-row strong {
+  text-align: right;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 2px solid var(--border);
+}
+
+.summary-total span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.summary-total strong {
+  font-size: 24px;
+}
+
+.secure-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* =========================================================
+   SHARED INPUTS
+   ========================================================= */
+
+input,
+select {
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--brand);
+}
+
+/* =========================================================
+   BILLING PAGE
+   ========================================================= */
+
+.billing-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.billing-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--brand-light);
+  color: var(--brand);
+}
+
+.billing-header h1 {
+  margin: 0 0 4px;
+}
+
+.billing-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.invoice-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.invoice-card {
+  padding: 20px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.invoice-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.invoice-label {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.billing-badge {
+  display: inline-flex;
+  margin-top: 8px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--brand-light);
+  color: var(--brand);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.invoice-amount {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.invoice-details {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.invoice-detail {
+  padding: 10px;
+  background: var(--bg);
+  border-radius: 8px;
+}
+
+.invoice-detail span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.invoice-detail strong {
+  font-size: 13px;
+}
+
+.invoice-machine {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* =========================================================
+   ALL BOOKINGS
+   ========================================================= */
+
+table {
+  width: 100%;
+  background: white;
+  border: 1px solid var(--border);
+}
+
+th {
+  background: var(--bg);
+  text-align: left;
+  font-size: 12px;
+}
+
+td,
+th {
+  border-color: var(--border);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .booking-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-summary {
+    position: static;
+  }
+
+  .machine-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .billing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .invoice-details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 24px 16px;
+  }
+
+  .navbar {
+    padding: 14px 16px;
+  }
+
+  .navbar-links {
+    gap: 12px;
+  }
+
+  .navbar-button {
+    display: none;
+  }
+
+  .hero {
+    padding: 24px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero-stats {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .hero-stat {
+    width: 100%;
+  }
+
+  .machine-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .machine-select-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .date-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .billing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Customer fields become one column on mobile */
+  .customer-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-field:last-child {
+    grid-column: auto;
+  }
+
+  .invoice-details {
+    grid-template-columns: 1fr;
+  }
+
+  .invoice-top {
+    flex-direction: column;
+  }
+
+  .form-card {
+    padding: 18px;
+  }
+}
